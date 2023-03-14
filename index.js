@@ -1,4 +1,4 @@
-const mysql = require('mysql2')
+const connection = require('./db/server');
 
 const inquirer = require('inquirer'); 
 
@@ -6,22 +6,7 @@ const cTable = require('console.table');
 
 require('dotenv').config()
 
-
-const connection = mysql.createConnection({
-  host: 'localhost',
-  user: 'root',
-  password: process.env.MYSQL_PASSWORD,
-  database: 'employee_db'
-});
-
-connection.connect(err => {
-  if (err) throw err;
-  console.log('connected as id ' + connection.threadId);
-  afterConnection();
-});
-
-
-afterConnection = () => {
+function afterConnection() {
   console.log("***********************************")
   console.log("*                                 *")
   console.log("*        EMPLOYEE MANAGER         *")
@@ -109,13 +94,13 @@ const promptUser = () => {
       }
 
       if (choices === "No Action") {
-        connection.end()
-    };
+        connection.end();
+    }
   });
 };
 
 
-showDepartments = () => {
+const showDepartments = () => {
   console.log('Showing all departments...\n');
   const sql = `SELECT department.id AS id, department.name AS department FROM department`; 
 
@@ -127,7 +112,7 @@ showDepartments = () => {
 };
 
 
-showRoles = () => {
+const showRoles = () => {
   console.log('Showing all roles...\n');
 
   const sql = `SELECT role.id, role.title, department.name AS department
@@ -142,7 +127,7 @@ showRoles = () => {
 };
 
 
-showEmployees = () => {
+const showEmployees = () => {
   console.log('Showing all employees...\n'); 
   const sql = `SELECT employee.id, 
                       employee.first_name, 
@@ -164,7 +149,7 @@ showEmployees = () => {
 };
 
 
-addDepartment = () => {
+const addDepartment = () => {
   inquirer.prompt([
     {
       type: 'input', 
@@ -193,7 +178,7 @@ addDepartment = () => {
 };
 
 
-addRole = () => {
+const addRole = () => {
   inquirer.prompt([
     {
       type: 'input', 
@@ -212,12 +197,12 @@ addRole = () => {
       type: 'input', 
       name: 'salary',
       message: "What is the salary of this role?",
-      validate: addSalary => {
-        if (isNAN(addSalary)) {
-            return true;
+      validate: (input) => {
+        if (isNaN(input)) {
+            return false;
         } else {
             console.log('Please enter a salary');
-            return false;
+            return true;
         }
       }
     }
@@ -241,12 +226,12 @@ addRole = () => {
           choices: dept
         }
         ])
-          .then(deptChoice => {
-            const dept = deptChoice.dept;
-            params.push(dept);
+          .then(department => {
+            const roleId = department.dept;
 
             const sql = `INSERT INTO role (title, salary, department_id)
                         VALUES (?, ?, ?)`;
+            const params = [answer.role, answer.salary, roleId];
 
             connection.query(sql, params, (err, result) => {
               if (err) throw err;
@@ -258,7 +243,6 @@ addRole = () => {
    });
  });
 };
-
 
 addEmployee = () => {
   inquirer.prompt([
