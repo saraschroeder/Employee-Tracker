@@ -1,4 +1,23 @@
 {
+  "name": "employee-tracker",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/saraschroeder/Employee-Tracker.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/saraschroeder/Employee-Tracker/issues"
+  },
+  "homepage": "https://github.com/saraschroeder/Employee-Tracker#readme",
+
   "dependencies": {
     "bower": "^1.8.14",
     "console.table": "^0.10.0",
@@ -6,9 +25,5 @@
     "inquirer": "^8.2.4",
     "install": "^0.13.0",
     "mysql2": "^3.2.0"
-  },
-  "scripts": {
-    "start": "node index.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
   }
 }
