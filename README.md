@@ -25,7 +25,7 @@ npm install console.table
 ![alt text](./images/Screenshot1.png)
 ![alt text](./images/Screenshot2.png)
 
-[Walkthrough]()
+[Walkthrough](https://drive.google.com/file/d/145i0aBGUsSk00pidNxXb_DmTNjTX45TK/view)
 
 ## Credits
 
