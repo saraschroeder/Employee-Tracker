@@ -1,28 +1,26 @@
-INSERT INTO department (name)
-VALUES
+INSERT INTO department (name) VALUES
 ('IT'),
-('Finance & Accounting'),
-('Sales & Marketing'),
-('Operations');
+('Marketing'),
+("Engineering"),
+('Finance'),
+('Human Resources');
 
-INSERT INTO role (title, salart, department_id)
-VALUES
-('Full Stack Developer', 80000, 1),
-('Software Engineer', 120000, 1),
-('Accountant', 1000, 2),
-('Financial Analyst', 150000, 2), 
-('Marketing Coordinator', 700000, 3),
-('Sales Lead', 90000, 3),
-('Project Manager', 100000, 4),
-('Operations Manager', 90000, 4);
 
-INSERT INTO employee (first_name, last_name, role_id, manager_id)
-VALUES
-('John', 'Johnson', 2, null),
-('David', 'Anderson', 1, 1),
-('Julie', 'Cam', 4, null),
-('Ashley', 'Jones', 3, 3),
-('Taylor', 'Ray', 6, null),
-('Kayla', 'Brown', 5, 5),
-('Maddy', 'Moore', 7, null),
-('Sara', 'Wubben', 8, 7);
+INSERT INTO roles (title, salary, department_id) VALUES
+('Software Developer', 90000, 1),
+('Network Administrator', 70000, 1),
+('Director of Marketing', 80000, 2),
+('Marketing Specialist', 60000, 2),
+('Engineer', 70000, 3),
+('Lead Engineer', 100000, 3),
+('Finance Manager', 90000, 4),
+('Accountant', 65000, 4),
+('HR Coordinator', 70000, 5),
+('HR Assistant', 50000, 5);
+
+INSERT INTO employee (first_name, last_name, role_id, manager_id) VALUES
+('John', 'Doe', 1, 2),
+('Sara', 'Schroeder', 2, null),
+('Madison', 'Jung', 3, 4),
+('Kayla', 'Ende', 4, null),
+('Sam', 'Schroeder', 5, 6),
