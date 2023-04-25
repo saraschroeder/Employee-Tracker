@@ -2,7 +2,6 @@
 
 ## Table of Contents
 * [Descriptions](#description)
-* [Installation](#installation)
 * [Dependencies](#dependencies)
 * [Usage](#usage)
 * [Credits](#credits)
@@ -12,10 +11,7 @@
 
 ## Description
 
-
-
-## Installation
-
+This node-based solution, utilizing inquirer and MySQL, facilitates efficient management of a company's workforce. Through a command-line interface, users can perform various tasks such as adding and viewing departments, roles, and employees, updating employee roles, and deleting departments, roles, and employees. Additionally, the application enables users to view employees according to their managers, thereby streamlining the management process.
 
 
 ## Dependencies
@@ -26,9 +22,8 @@ npm install console.table
 
 ## Usage
 
-![alt text]()
-![alt text]()
-![alt text]()
+![alt text](./images/Screenshot1.png)
+![alt text](./images/Screenshot2.png)
 
 [Walkthrough]()
 
